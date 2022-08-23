@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@peculiar/webcrypto'), require('atob')) :
   typeof define === 'function' && define.amd ? define(['exports', '@peculiar/webcrypto', 'atob'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.JsVerifyRSAPSSSHA256 = {}, global.webcrypto, global.atob));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.DePayVerifySignature = {}, global.webcrypto, global.atob));
 }(this, (function (exports, webcrypto, atob) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }

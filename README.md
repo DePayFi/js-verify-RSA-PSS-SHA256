@@ -1,17 +1,17 @@
 ## Quickstart
 
 ```
-yarn add @depay/js-verify-RSA-PSS-SHA256
+yarn add @depay/js-verify-signature
 ```
 
 or 
 
 ```
-npm install --save @depay/js-verify-RSA-PSS-SHA256
+npm install --save @depay/js-verify-signature
 ```
 
 ```javascript
-import { verify } from '@depay/js-verify-RSA-PSS-SHA256'
+import { verify } from '@depay/js-verify-signature'
 
 const data = "Sign me!"
 const signature = "AVovd+VSNI/6bg4E4eH+VI/neFuLxREKRqjtOFAMafSOTR9m0B96bBJdAxJ8\n8raPMCkg6R80uc48kV5UsaKCTbo4W+KUHlXONS2RPJz2DCO6E8Kq9K3h7GbB\nO2PUWAD/r4zALkp8gFymyte5E/iRq8AEHTjaPtuYltIzfP7TV8sW3nhFxrTG\nBWG4/fIgb1m+KsAYD19dOSpghOvhJC/WbMJOIt4YeiyZDU9I9G+F5dl6so/m\nxm93jkUq2mJnV8vuXjqRn/KrcTFZPxNTQVSTF/oOpVjXMsPLyJqJxS7giq2u\n2Y/4qquDzmiCdqK8woqrBP13cf0+kkeYS9lmJ14fTQ==\n"
