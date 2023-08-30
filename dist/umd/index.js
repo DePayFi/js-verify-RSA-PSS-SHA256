@@ -4,13 +4,16 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.DePayVerifySignature = {}));
 }(this, (function (exports) { 'use strict';
 
-  let crypto = crypto;
-  let atob = atob;
+  let crypto;
+  let atob;
 
   if (typeof window === 'undefined') { // running in Node.js
     crypto = new (require("@peculiar/webcrypto").Crypto)();
     atob = require('atob');
-  } 
+  } else {
+    crypto = window.crypto;
+    atob = window.atob;
+  }
 
   const string2ArrayBuffer = (str)=> {
     const buf = new ArrayBuffer(str.length);
