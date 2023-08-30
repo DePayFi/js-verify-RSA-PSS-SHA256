@@ -19,9 +19,10 @@ const string2ArrayBuffer = (str)=> {
 };
 
 const base64ToArrayBuffer = (b64)=> {
-  var byteString = atob(b64);
-  var byteArray = new Uint8Array(byteString.length);
-  for(var i=0; i < byteString.length; i++) {
+  const safeB64 = b64.replace(/-/g, '+').replace(/_/g, '/');
+  const byteString = atob(safeB64);
+  let byteArray = new Uint8Array(byteString.length);
+  for(let i=0; i < byteString.length; i++) {
     byteArray[i] = byteString.charCodeAt(i);
   }
   return byteArray
@@ -29,8 +30,11 @@ const base64ToArrayBuffer = (b64)=> {
 
 const verify = async ({ signature, publicKey, data, saltLength = 64 })=>{
 
-  const publicKeyContent = publicKey.replace(/^.*?-----BEGIN PUBLIC KEY-----\n/, '').replace(/-----END PUBLIC KEY-----(\n)*$/, '').replace(/(\n)*/g, '');
-  const binaryString = atob(publicKeyContent);
+  let innerPublicKey = publicKey.replace(/^.*?-----BEGIN PUBLIC KEY-----\n/, '').replace(/-----END PUBLIC KEY-----(\n)*$/, '').replace(/(\n)*/g, '');
+  while (innerPublicKey.length % 4) { // add proper padding
+    innerPublicKey += '=';
+  }
+  const binaryString = atob(innerPublicKey);
   const binaryStringArrayBuffer = string2ArrayBuffer(binaryString);
   const cryptoKey = await crypto.subtle.importKey("spki", binaryStringArrayBuffer, { name: "RSA-PSS", hash: "SHA-256" }, true, ["verify"]);
 

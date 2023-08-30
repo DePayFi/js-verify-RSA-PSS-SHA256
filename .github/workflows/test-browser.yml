@@ -1,4 +1,4 @@
-name: Test
+name: Test Browser
 
 on: push
 
@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
+          node-version: '19.x'
       - name: Cache node modules
         uses: actions/cache@v2
         env:
@@ -23,12 +23,19 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: npm install
+      - name: Install dependencies
+        run: npm install
+      - name: Run Cypress Tests
+        working-directory: client
         run: |
-          npm install
-      - name: npm run build
-        run: |
-          npm run build
-      - name: Run Tests
-        run: |
-          yarn test
+          yarn test:cypress
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: ${{ github.workspace }}/cypress/screenshots
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-videos
+          path: ${{ github.workspace }}/cypress/videos
