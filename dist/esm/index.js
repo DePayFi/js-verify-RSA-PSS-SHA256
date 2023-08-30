@@ -29,7 +29,7 @@ const base64ToArrayBuffer = (b64)=> {
 
 const verify = async ({ signature, publicKey, data, saltLength = 64 })=>{
 
-  const publicKeyContent = publicKey.replace(/^.*?-----BEGIN PUBLIC KEY-----\n/, '').replace(/-----END PUBLIC KEY-----(\n)*$/, '').replace(/(\n)*$/, '');
+  const publicKeyContent = publicKey.replace(/^.*?-----BEGIN PUBLIC KEY-----\n/, '').replace(/-----END PUBLIC KEY-----(\n)*$/, '').replace(/(\n)*/g, '');
   const binaryString = atob(publicKeyContent);
   const binaryStringArrayBuffer = string2ArrayBuffer(binaryString);
   const cryptoKey = await crypto.subtle.importKey("spki", binaryStringArrayBuffer, { name: "RSA-PSS", hash: "SHA-256" }, true, ["verify"]);
