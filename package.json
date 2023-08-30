@@ -1,7 +1,7 @@
 {
   "name": "@depay/js-verify-signature",
   "moduleName": "DePayVerifySignature",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "JavaScript library to verify RSA PSS SHA256 signatures with a given public key.",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
