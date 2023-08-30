@@ -1,7 +1,10 @@
-import { Crypto } from '@peculiar/webcrypto';
-import atob from 'atob';
+let crypto = crypto;
+let atob = atob;
 
-const crypto = new Crypto();
+if (typeof window === 'undefined') { // running in Node.js
+  crypto = new (require("@peculiar/webcrypto").Crypto)();
+  atob = require('atob');
+} 
 
 const string2ArrayBuffer = (str)=> {
   const buf = new ArrayBuffer(str.length);

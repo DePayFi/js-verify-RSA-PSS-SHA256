@@ -1,4 +1,20 @@
-## Quickstart
+## Installation
+
+### Node.js
+
+```
+yarn add @depay/js-verify-signature @peculiar/webcrypto atob
+```
+
+or 
+
+```
+npm install --save @depay/js-verify-signature @peculiar/webcrypto atob
+```
+
+### Web
+
+Web does not need to install crypto nor atob dependencies:
 
 ```
 yarn add @depay/js-verify-signature
@@ -9,6 +25,8 @@ or
 ```
 npm install --save @depay/js-verify-signature
 ```
+
+## Functionoality
 
 ```javascript
 import { verify } from '@depay/js-verify-signature'
