@@ -26,7 +26,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run Cypress Tests
-        working-directory: client
         run: |
           yarn test:cypress
       - uses: actions/upload-artifact@v3
