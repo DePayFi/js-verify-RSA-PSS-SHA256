@@ -1,0 +1,28 @@
+{
+  "name": "@depay/js-verify-signature-web",
+  "moduleName": "DePayVerifySignature",
+  "version": "3.0.0",
+  "description": "JavaScript library to verify RSA PSS SHA256 signatures with a given public key.",
+  "main": "dist/umd/index.web.js",
+  "module": "dist/esm/index.web.js",
+  "source": "src/index.web.js",
+  "files": [
+    "dist"
+  ],
+  "repository": "git@github.com:DePayFi/js-verify-RSA-PSS-SHA256.git",
+  "keywords": [
+    "verify",
+    "encryption",
+    "signature",
+    "rsa",
+    "sha256"
+  ],
+  "author": "depay.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DePayFi/js-verify-RSA-PSS-SHA256/issues"
+  },
+  "homepage": "https://depay.com",
+  "private": false,
+  "dependencies": {}
+}

@@ -1,4 +1,4 @@
-import { verify } from '../../src/index'
+import { verify } from '../../src/index.web'
 
 describe('verify', () => {
   

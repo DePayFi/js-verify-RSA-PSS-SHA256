@@ -30,11 +30,11 @@ var internalVerify = async ({ signature, publicKey, data, saltLength = 64, crypt
   return await crypto.subtle.verify({ name: "RSA-PSS", saltLength }, cryptoKey, base64ToArrayBuffer(signature, atob), string2ArrayBuffer(data))
 };
 
-const crypto = new (require("@peculiar/webcrypto").Crypto)();
-const atob = require('atob');
+const crypto = window.crypto;
+const atob = window.atob;
 
 const verify = ({ signature, publicKey, data, saltLength = 64 })=>{
-  return internalVerify({ signature, publicKey, data, crypto, atob })
+  return internalVerify({ signature, publicKey, data, saltLength, crypto, atob })
 };
 
 export { verify };

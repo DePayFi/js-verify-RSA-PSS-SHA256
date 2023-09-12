@@ -14,19 +14,19 @@ npm install --save @depay/js-verify-signature @peculiar/webcrypto atob
 
 ### Web
 
-Web does not need to install crypto nor atob dependencies:
+Web does not need to install crypto nor atob dependencies, but it needs to use the `js-verify-signature-web` package:
 
 ```
-yarn add @depay/js-verify-signature
+yarn add @depay/js-verify-signature-web
 ```
 
 or 
 
 ```
-npm install --save @depay/js-verify-signature
+npm install --save @depay/js-verify-signature-web
 ```
 
-## Functionoality
+## Functionality
 
 ```javascript
 import { verify } from '@depay/js-verify-signature'
