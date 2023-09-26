@@ -19,6 +19,10 @@ const base64ToArrayBuffer = (b64, atob)=> {
 
 var internalVerify = async ({ signature, publicKey, data, saltLength = 64, crypto, atob })=>{
 
+  if(typeof data === 'object') {
+    data = JSON.stringify(data);
+  }
+
   let innerPublicKey = publicKey.replace(/^.*?-----BEGIN PUBLIC KEY-----\n/, '').replace(/-----END PUBLIC KEY-----(\n)*$/, '').replace(/(\n)*/g, '');
   while (innerPublicKey.length % 4) { // add proper padding
     innerPublicKey += '=';
