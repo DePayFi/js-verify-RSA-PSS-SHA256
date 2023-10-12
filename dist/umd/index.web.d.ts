@@ -1,8 +1,7 @@
 declare function verify({
   signature: string,
   publicKey: string,
-  data: string,
-  saltLength?: number
+  data: string | object,
 }): Promise<boolean>;
 
 export {
