@@ -1,7 +1,7 @@
 {
   "name": "@depay/js-verify-signature",
   "moduleName": "DePayVerifySignature",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "JavaScript library to verify RSA PSS SHA256 signatures with a given public key.",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
@@ -34,8 +34,6 @@
   },
   "homepage": "https://depay.com",
   "private": false,
-  "dependencies": {
-  },
   "peerDependencies": {
     "@peculiar/webcrypto": "^1.4.0",
     "atob": "^2.1.2"
@@ -60,6 +58,7 @@
     "eslint-plugin-import": "^2.22.1",
     "regenerator-runtime": "^0.13.7",
     "rollup": "^2.34.2",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-serve": "^1.1.0",

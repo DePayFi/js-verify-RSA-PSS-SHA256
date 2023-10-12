@@ -1,4 +1,5 @@
 import commonjs from '@rollup/plugin-commonjs'
+import copy from 'rollup-plugin-copy'
 import globals from './rollup.globals.js'
 import pkg from './package.json'
 import replace from '@rollup/plugin-replace'
@@ -26,6 +27,12 @@ export default {
     ...Object.keys(pkg.peerDependencies || {}),
   ],
   plugins: [
+    copy({
+      targets: [
+        { src: 'src/index.d.ts', dest: 'dist/umd/', rename: ()=>'index.web.d.ts' },
+        { src: 'src/index.d.ts', dest: 'dist/esm/', rename: ()=>'index.web.d.ts' },
+      ]
+    }),
     sucrase({
       exclude: ['node_modules/**'],
       transforms: ['jsx']
