@@ -3,13 +3,13 @@
 ### Node.js
 
 ```
-yarn add @depay/js-verify-signature @peculiar/webcrypto atob
+yarn add @depay/js-verify-signature
 ```
 
 or 
 
 ```
-npm install --save @depay/js-verify-signature @peculiar/webcrypto atob
+npm install --save @depay/js-verify-signature
 ```
 
 ### Web
